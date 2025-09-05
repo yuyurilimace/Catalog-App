@@ -8,7 +8,7 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
-  const { control, handleSubmit, reset } = useForm<LoginForm>({
+  const { control, handleSubmit } = useForm<LoginForm>({
     reValidateMode: "onSubmit",
   });
 
