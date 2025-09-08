@@ -2,8 +2,9 @@ import { Server } from "miragejs";
 import type { AnyFactories, AnyModels, Registry } from "miragejs/-types";
 
 const LoginMockRoutes = (server: Server<Registry<AnyModels, AnyFactories>>) => {
-  server.get("/api/login", (schema, Request) => {
-    return { message: "Deu bom" };
+  return server.post("/login", (schema, Request) => {
+    console.log("request", Request);
+    return { token: "mocked_jwt_Token", isAuth: true };
   });
 };
 

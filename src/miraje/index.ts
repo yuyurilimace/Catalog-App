@@ -2,15 +2,15 @@ import { createServer } from "miragejs";
 import LoginMockRoutes from "./Routes/login";
 
 export default function StartServer() {
-  console.log("subiu servidor de mock");
-  if (window.mirajeServer) {
+  if (!window.mirajeServer) {
     console.log("subiu servidor de mock");
     createServer({
       routes() {
+        this.namespace = "api";
         LoginMockRoutes(this);
       },
     });
-    return;
+  } else {
+    console.log("Servidor já aberto");
   }
-  console.log("Servidor já aberto");
 }

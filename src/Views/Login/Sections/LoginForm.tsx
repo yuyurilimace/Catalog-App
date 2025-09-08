@@ -1,6 +1,12 @@
 import { Checkbox, FormControlLabel, Grid, Link, Button } from "@mui/material";
 import { FormInput } from "../../../Components/FormInput";
 import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+
+import { baseURL } from "../../../axios";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/authContext";
+import { useNavigate } from "react-router-dom";
 
 interface LoginForm {
   email: string;
@@ -8,11 +14,29 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+  const mutation = useMutation({
+    mutationFn: async (form: LoginForm) => {
+      const response = await baseURL.post("/login", form);
+      return response.data;
+    },
+  });
+
   const { control, handleSubmit } = useForm<LoginForm>({
     reValidateMode: "onSubmit",
   });
 
-  const onSubmit = (data: LoginForm) => {};
+  const onSubmit = (data: LoginForm) => {
+    mutation.mutate(data, {
+      onSuccess: ({ token, isAuth }) => {
+        localStorage.setItem("token", token);
+        localStorage.setItem("isAuth", isAuth);
+        auth?.setUserToken(token);
+        navigate("/home");
+      },
+    });
+  };
 
   return (
     <Grid
