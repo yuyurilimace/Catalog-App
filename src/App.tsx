@@ -10,7 +10,6 @@ const queryClient = new QueryClient();
 function App() {
   const enableMockServer = import.meta.env.VITE_API_MOCK;
   const AppMode = import.meta.env.MODE;
-  console.log(AppMode);
   if (enableMockServer && AppMode === "development") {
     StartServer();
   }

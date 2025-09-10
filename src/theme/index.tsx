@@ -12,6 +12,12 @@ const theme = createTheme({
       default: "#f6eeda",
       paper: "#f5f0e6",
     },
+    appBarColors: {
+      main: "#8C4F1C",
+      light: "#E6A873",
+      dark: "#fff",
+      contrastText: "#fff",
+    },
   },
   components: {
     MuiLink: {

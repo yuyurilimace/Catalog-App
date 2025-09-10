@@ -1,16 +1,8 @@
-import { useContext } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthContext, AuthProvider } from "./Context/authContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./Context/authContext";
 import { LoginView } from "./Views/Login";
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const auth = useContext(AuthContext);
-  console.log(auth);
-  if (auth?.userToken) {
-    return <>{children}</>;
-  }
-  return <Navigate to={"/"} />;
-};
+import { AppViewTemplate } from "./Components/AppViewTemplate";
 
 const AppRouter = () => {
   return (
@@ -20,10 +12,10 @@ const AppRouter = () => {
           <Route
             path="/home"
             element={
-              <ProtectedRoute>
+              <AppViewTemplate>
                 {" "}
                 <div> Rota protegida </div>{" "}
-              </ProtectedRoute>
+              </AppViewTemplate>
             }
           ></Route>
 

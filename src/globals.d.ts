@@ -7,3 +7,14 @@ declare global {
     mirajeServer?: Server;
   }
 }
+
+declare module "@mui/material/styles" {
+  interface PaletteOptions {
+    appBarColors?: {
+      main: string;
+      light: string;
+      dark: string;
+      contrastText: string;
+    };
+  }
+}

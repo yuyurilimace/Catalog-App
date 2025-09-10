@@ -3,7 +3,6 @@ import type { AnyFactories, AnyModels, Registry } from "miragejs/-types";
 
 const LoginMockRoutes = (server: Server<Registry<AnyModels, AnyFactories>>) => {
   return server.post("/login", (schema, Request) => {
-    console.log("request", Request);
     return { token: "mocked_jwt_Token", isAuth: true };
   });
 };
