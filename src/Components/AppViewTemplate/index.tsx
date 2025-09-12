@@ -11,7 +11,17 @@ const AppViewTemplate = ({ children }: { children: React.ReactNode }) => {
     return (
       <>
         <CustomAppBar routeNames={routeNames} />
-        <Container maxWidth={false}>{children}</Container>
+        <Container
+          sx={{
+            backgroundColor: "background.default",
+            height: "91.5vh",
+            paddingTop: "24px",
+            paddingBottom: "24px",
+          }}
+          maxWidth={false}
+        >
+          {children}
+        </Container>
       </>
     );
   }

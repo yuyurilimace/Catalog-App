@@ -4,7 +4,7 @@ import { LoginForm } from "./LoginForm";
 
 const FormSection = () => {
   return (
-    <Paper elevation={8} sx={{ width: "80%" }}>
+    <Paper elevation={8} sx={{ width: "80%", height: "auto" }}>
       <Grid container padding={3}>
         <Grid
           display={"flex"}
@@ -13,7 +13,7 @@ const FormSection = () => {
           size={12}
           padding={3}
         >
-          <Box width={"100%"} height={"auto"} maxWidth={"400px"}>
+          <Box width={"100%"} height={"auto"} maxWidth={"200px"}>
             <Logo />
           </Box>
         </Grid>

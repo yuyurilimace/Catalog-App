@@ -3,6 +3,7 @@ import { AuthProvider } from "./Context/authContext";
 import { LoginView } from "./Views/Login";
 
 import { AppViewTemplate } from "./Components/AppViewTemplate";
+import { Home } from "./Views/Home";
 
 const AppRouter = () => {
   return (
@@ -13,8 +14,7 @@ const AppRouter = () => {
             path="/home"
             element={
               <AppViewTemplate>
-                {" "}
-                <div> Rota protegida </div>{" "}
+                <Home />
               </AppViewTemplate>
             }
           ></Route>

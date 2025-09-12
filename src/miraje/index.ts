@@ -1,5 +1,6 @@
 import { createServer } from "miragejs";
 import LoginMockRoutes from "./Routes/login";
+import HomeMockRoutes from "./Routes/home";
 
 export default function StartServer() {
   if (!window.mirajeServer) {
@@ -8,6 +9,7 @@ export default function StartServer() {
       routes() {
         this.namespace = "api";
         LoginMockRoutes(this);
+        HomeMockRoutes(this);
       },
     });
   } else {

@@ -21,7 +21,11 @@ const CustomAppBar = ({ routeNames }: CustomAppProps) => {
   return (
     <AppBar position="static">
       <Container maxWidth={false}>
-        <Toolbar disableGutters variant="dense" sx={{ alignItems: "stretch" }}>
+        <Toolbar
+          disableGutters
+          variant="dense"
+          sx={{ minHeight: "5vh", alignItems: "stretch" }}
+        >
           <Box width={"70px"} height={"auto"} maxWidth={"400px"}>
             <Logo />
           </Box>
