@@ -1,22 +1,32 @@
-import { Grid } from "@mui/material";
-import { ImageSection } from "./Sections/ImageSection";
-import { FormSection } from "./Sections/FormSection";
+// import { Grid } from "@mui/material";
+// import { ImageSection } from "./Sections/ImageSection";
+// import { FormSection } from "./Sections/FormSection";
 
+import { Box, Container } from "@mui/material";
+
+import { ImageSection } from "./Sections/ImageSection";
+
+import { LoginCard } from "./Sections/LoginCard";
+import { FormSection } from "./Sections/FormSection";
 const LoginView = () => {
   return (
-    <Grid sx={{ height: "100vh" }} container>
-      <Grid size={{ xl: 8, lg: 7, md: 6, sm: 0, xs: 0 }}>
-        <ImageSection />
-      </Grid>
-      <Grid
-        bgcolor={"background.default"}
-        alignContent={"center"}
-        justifyItems={"center"}
-        size={{ xl: 4, lg: 5, md: 6, sm: 12, xs: 12 }}
-      >
-        <FormSection />
-      </Grid>
-    </Grid>
+    <Box
+      height={"100vh"}
+      sx={{
+        background: "linear-gradient(to bottom right,#eff6ff,#ecfeff,#f0f9ff)",
+      }}
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"center"}
+      alignItems={"center"}
+    >
+      <Container>
+        <LoginCard>
+          <ImageSection />
+          <FormSection />
+        </LoginCard>
+      </Container>
+    </Box>
   );
 };
 

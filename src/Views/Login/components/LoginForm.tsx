@@ -1,0 +1,78 @@
+import { Button, Box, TextField, Typography } from "@mui/material";
+
+// import { useForm } from "react-hook-form";
+// import { useMutation } from "@tanstack/react-query";
+
+// import { useContext } from "react";
+// import { AuthContext } from "../../../Context/authContext";
+// import { useNavigate } from "react-router-dom";
+// import { signInWithEmailAndPassword } from "firebase/auth";
+// import { appAuth } from "../../../utils/firebse";
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
+const LoginForm = () => {
+  // const auth = useContext(AuthContext);
+  // const navigate = useNavigate();
+  // const mutation = useMutation({
+  //   mutationFn: async ({ email, password }: LoginForm) => {
+  //     const response = await signInWithEmailAndPassword(
+  //       appAuth,
+  //       email,
+  //       password
+  //     );
+  //     const token = await response.user.getIdToken();
+  //     console.log(response);
+  //     return { token: token };
+  //   },
+  // });
+
+  // const { control, handleSubmit } = useForm<LoginForm>({
+  //   reValidateMode: "onSubmit",
+  // });
+
+  // const onSubmit = async (data: LoginForm) => {
+  //   await mutation.mutate(data, {
+  //     onSuccess: ({ token }) => {
+  //       localStorage.setItem("token", token);
+  //       localStorage.setItem("isAuth", "true");
+  //       auth?.setUserToken(token);
+  //       navigate("/home");
+  //     },
+  //     onError: (err) => console.log(err),
+  //   });
+  // };
+
+  return (
+    <Box
+      display={"flex"}
+      flexDirection={"column"}
+      width={"100%"}
+      textAlign={"center"}
+    >
+      <TextField sx={{ marginBottom: 4 }} label="E-mail" />
+      <TextField sx={{ marginBottom: 4 }} label="Senha" />
+      <Button
+        sx={{
+          background: "linear-gradient(to right,#155dfc,#00b8db)",
+          textTransform: "none",
+          ":hover": {
+            background: "linear-gradient(to right,#1447e6,#007595)",
+          },
+        }}
+        variant="contained"
+      >
+        {" "}
+        Entrar{" "}
+      </Button>
+      <Typography marginTop={5} color="#4a5565" variant="subtitle1">
+        Use qualquer e-mail e senha para acessar
+      </Typography>
+    </Box>
+  );
+};
+
+export { LoginForm };

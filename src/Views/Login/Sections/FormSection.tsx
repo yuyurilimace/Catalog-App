@@ -1,25 +1,27 @@
-import { Grid, Paper, Box } from "@mui/material";
-import Logo from "../../../assets/logo.svg";
+import { Grid, Box } from "@mui/material";
+
 import { LoginForm } from "./LoginForm";
+import { LoginFormHeader } from "./LoginFormHeader";
 
 const FormSection = () => {
   return (
-    <Paper elevation={8} sx={{ width: "80%", height: "auto" }}>
-      <Grid container padding={3}>
-        <Grid
-          display={"flex"}
-          justifyContent={"center"}
-          alignContent={"center"}
-          size={12}
-          padding={3}
-        >
-          <Box width={"100%"} height={"auto"} maxWidth={"200px"}>
-            <Logo />
-          </Box>
-        </Grid>
+    <Grid
+      alignItems={"center"}
+      justifyContent={"center"}
+      size={{ md: 6, sm: 12, xs: 12 }}
+      spacing={8}
+    >
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        padding={6}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        <LoginFormHeader />
         <LoginForm />
-      </Grid>
-    </Paper>
+      </Box>
+    </Grid>
   );
 };
 

@@ -2,24 +2,17 @@ import { createTheme } from "@mui/material";
 
 import type {} from "@mui/x-data-grid/themeAugmentation";
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#CC7C3C",
-      light: "#E6A873",
-      dark: "#8C4F1C",
-      contrastText: "#ffffff",
-    },
-    background: {
-      default: "#f6eeda",
-      paper: "#f5f0e6",
-    },
-    appBarColors: {
-      main: "#8C4F1C",
-      light: "#E6A873",
-      dark: "#fff",
-      contrastText: "#fff",
-    },
+  typography: {
+    fontFamily: [
+      "ui-sans-serif",
+      "system-ui, sans-serif",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji",
+    ].join(","),
   },
+  palette: {},
   components: {
     MuiLink: {
       styleOverrides: {
