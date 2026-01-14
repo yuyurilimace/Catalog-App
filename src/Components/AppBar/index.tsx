@@ -1,58 +1,31 @@
-import { AppBar, Container, Toolbar, Box, Button } from "@mui/material";
-import Logo from "../../assets/logo.svg";
-import { useLocation, useNavigate } from "react-router-dom";
-import { theme } from "../../theme";
+import { AppBar, Grid, Container } from "@mui/material";
 
-import { AppBarMenu } from "./Menu";
+import { Logo } from "./logo";
+import { NavigateButtons } from "./actions";
 
-interface CustomAppProps {
-  routeNames: string[];
-}
-
-const CustomAppBar = ({ routeNames }: CustomAppProps) => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-
-  const onChangeRoute = (name: string) => {
-    const routeName = "/" + name.toLowerCase();
-    navigate(routeName);
-  };
-
+const CustomAppBar = ({ routeNames }: { routeNames: string[] }) => {
   return (
-    <AppBar position="static">
-      <Container maxWidth={false}>
-        <Toolbar
-          disableGutters
-          variant="dense"
-          sx={{ minHeight: "5vh", alignItems: "stretch" }}
+    <AppBar
+      position="static"
+      sx={{
+        height: "10%",
+        background: "linear-gradient(to right ,#2563eb,#0891b2)",
+      }}
+    >
+      <Container maxWidth="xl" sx={{ height: "100%" }}>
+        <Grid
+          container
+          height={"100%"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
         >
-          <Box width={"70px"} height={"auto"} maxWidth={"400px"}>
+          <Grid>
             <Logo />
-          </Box>
-          <Box flexGrow={1}>
-            {routeNames.map((name) => (
-              <Button
-                onClick={() => onChangeRoute(name)}
-                sx={{
-                  backgroundColor: (theme) =>
-                    pathname.includes(name.toLocaleLowerCase())
-                      ? theme.palette.primary.dark
-                      : theme.palette.primary.main,
-                  "&:hover": {
-                    backgroundColor: theme.palette.primary.dark,
-                  },
-                  height: "100%",
-                  borderRadius: "0px",
-                  padding: "16px",
-                }}
-                color={"inherit"}
-              >
-                {name}
-              </Button>
-            ))}
-          </Box>
-          <AppBarMenu />
-        </Toolbar>
+          </Grid>
+          <Grid container alignItems={"center"} spacing={2}>
+            <NavigateButtons routeNames={routeNames} />
+          </Grid>
+        </Grid>
       </Container>
     </AppBar>
   );

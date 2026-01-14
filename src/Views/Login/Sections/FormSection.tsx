@@ -1,7 +1,7 @@
 import { Grid, Box } from "@mui/material";
 
-import { LoginForm } from "./LoginForm";
-import { LoginFormHeader } from "./LoginFormHeader";
+import { LoginForm } from "../components/LoginForm";
+import { LoginFormHeader } from "../components/LoginFormHeader";
 
 const FormSection = () => {
   return (

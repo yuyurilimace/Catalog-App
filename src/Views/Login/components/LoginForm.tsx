@@ -1,11 +1,12 @@
-import { Button, Box, TextField, Typography } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
 
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 // import { useMutation } from "@tanstack/react-query";
 
-// import { useContext } from "react";
-// import { AuthContext } from "../../../Context/authContext";
-// import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/authContext";
+import { useNavigate } from "react-router-dom";
+import { FormInput } from "../../../Components/FormInput";
 // import { signInWithEmailAndPassword } from "firebase/auth";
 // import { appAuth } from "../../../utils/firebse";
 
@@ -15,8 +16,8 @@ interface LoginForm {
 }
 
 const LoginForm = () => {
-  // const auth = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
   // const mutation = useMutation({
   //   mutationFn: async ({ email, password }: LoginForm) => {
   //     const response = await signInWithEmailAndPassword(
@@ -30,21 +31,26 @@ const LoginForm = () => {
   //   },
   // });
 
-  // const { control, handleSubmit } = useForm<LoginForm>({
-  //   reValidateMode: "onSubmit",
-  // });
+  const { control, handleSubmit } = useForm<LoginForm>({
+    reValidateMode: "onSubmit",
+  });
 
-  // const onSubmit = async (data: LoginForm) => {
-  //   await mutation.mutate(data, {
-  //     onSuccess: ({ token }) => {
-  //       localStorage.setItem("token", token);
-  //       localStorage.setItem("isAuth", "true");
-  //       auth?.setUserToken(token);
-  //       navigate("/home");
-  //     },
-  //     onError: (err) => console.log(err),
-  //   });
-  // };
+  const onSubmit = async (data: LoginForm) => {
+    localStorage.setItem("token", "tokenTeste");
+    localStorage.setItem("isAuth", "true");
+    auth?.setUserToken("teste");
+    console.log(data);
+    navigate("/dashboard");
+    // await mutation.mutate(data, {
+    //   onSuccess: ({ token }) => {
+    //     localStorage.setItem("token", token);
+    //     localStorage.setItem("isAuth", "true");
+    //     auth?.setUserToken(token);
+    //     navigate("/home");
+    //   },
+    //   onError: (err) => console.log(err),
+    // });
+  };
 
   return (
     <Box
@@ -52,10 +58,23 @@ const LoginForm = () => {
       flexDirection={"column"}
       width={"100%"}
       textAlign={"center"}
+      component={"form"}
+      onSubmit={handleSubmit(onSubmit)}
     >
-      <TextField sx={{ marginBottom: 4 }} label="E-mail" />
-      <TextField sx={{ marginBottom: 4 }} label="Senha" />
+      <FormInput
+        control={control}
+        name="email"
+        sx={{ marginBottom: 4 }}
+        label="E-mail"
+      />
+      <FormInput
+        control={control}
+        name="password"
+        sx={{ marginBottom: 4 }}
+        label="Senha"
+      />
       <Button
+        type="submit"
         sx={{
           background: "linear-gradient(to right,#155dfc,#00b8db)",
           textTransform: "none",

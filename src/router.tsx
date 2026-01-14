@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Context/authContext";
 import { LoginView } from "./Views/Login";
 
-import { AppViewTemplate } from "./Components/AppViewTemplate";
 import { Home } from "./Views/Home";
 
 const AppRouter = () => {
@@ -10,14 +9,7 @@ const AppRouter = () => {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route
-            path="/home"
-            element={
-              <AppViewTemplate>
-                <Home />
-              </AppViewTemplate>
-            }
-          ></Route>
+          <Route path="/dashboard" element={<Home />}></Route>
 
           <Route path="/" element={<LoginView />}></Route>
         </Routes>
