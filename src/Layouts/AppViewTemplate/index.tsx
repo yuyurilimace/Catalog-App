@@ -10,7 +10,6 @@ const AppViewTemplate = ({ children }: { children: React.ReactNode }) => {
   if (auth?.userToken) {
     return (
       <Box
-        height={"100vh"}
         sx={{
           background:
             "linear-gradient(to bottom right,#eff6ff,#ecfeff,#f0f9ff)",
@@ -19,7 +18,9 @@ const AppViewTemplate = ({ children }: { children: React.ReactNode }) => {
         flexDirection={"column"}
       >
         <CustomAppBar routeNames={routeNames} />
-        <Container maxWidth="xl">{children}</Container>
+        <Container sx={{ p: 3 }} maxWidth="xl">
+          {children}
+        </Container>
       </Box>
     );
   }

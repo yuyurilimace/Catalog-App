@@ -8,7 +8,7 @@ const CustomAppBar = ({ routeNames }: { routeNames: string[] }) => {
     <AppBar
       position="static"
       sx={{
-        height: "10%",
+        py: 1.5,
         background: "linear-gradient(to right ,#2563eb,#0891b2)",
       }}
     >

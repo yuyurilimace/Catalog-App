@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Context/authContext";
 import { useNavigate } from "react-router-dom";
 import { FormInput } from "../../../Components/FormInput";
+
 // import { signInWithEmailAndPassword } from "firebase/auth";
 // import { appAuth } from "../../../utils/firebse";
 
@@ -76,10 +77,12 @@ const LoginForm = () => {
       <Button
         type="submit"
         sx={{
-          background: "linear-gradient(to right,#155dfc,#00b8db)",
+          background: (theme) =>
+            `linear-gradient(to right,${theme.palette.blue?.[500]},${theme.palette.cyan?.[500]})`,
           textTransform: "none",
           ":hover": {
-            background: "linear-gradient(to right,#1447e6,#007595)",
+            background: (theme) =>
+              `linear-gradient(to right,${theme.palette.blue?.[700]},${theme.palette.cyan?.[700]})`,
           },
         }}
         variant="contained"

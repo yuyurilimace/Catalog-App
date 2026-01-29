@@ -1,9 +1,18 @@
+import { Grid } from "@mui/material";
 import { AppViewTemplate } from "../../Layouts/AppViewTemplate";
+
+import { ActionToolbar } from "./Sections/ActionToolbar";
+import { StatsSection } from "./Sections/StatsSection";
+import { IncompleteCollectionsSection } from "./Sections/IncompleteCollections";
 
 const Home = () => {
   return (
     <AppViewTemplate>
-      <h2> Home </h2>
+      <Grid container spacing={3}>
+        <ActionToolbar />
+        <StatsSection />
+        <IncompleteCollectionsSection />
+      </Grid>
     </AppViewTemplate>
   );
 };
